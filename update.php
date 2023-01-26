@@ -24,7 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             Set     Firstname = :Firstname,
                     Infix = :Infix,
                     Lastname = :Lastname,
-                    Phone_number = :phone_number
+                    Phone_number = :phone_number,
+                    Street_name = :street_name
                 WHERE   Id = :Id";
 
         $statement = $pdo->prepare($sql);
@@ -33,6 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $statement->bindValue(":Infix", $_POST["infix"], pdo::PARAM_STR);
         $statement->bindValue(":Lastname", $_POST["lastname"], pdo::PARAM_STR);
         $statement->bindValue(":phone_number", $_POST["phone_number"], pdo::PARAM_STR);
+        $statement->bindValue(":street_name", $_POST["street_name"], pdo::PARAM_STR);
 
         $statement->execute();
 
@@ -51,6 +53,7 @@ $sql = "SELECT Id
               ,Infix as TV
               ,Lastname as AN
               ,Phone_number as PH
+              ,Street_name as SN
         FROM Persoon
         WHERE Id = :Id";
 
@@ -81,17 +84,20 @@ $result = $statement->fetch(PDO::FETCH_OBJ);
     <h3>Wijzig het record</h3>
 
     <form action="update.php" method="post">
-        <label for="firstname">Voornaam:</label><br>
+        <label for="firstname">Firstname:</label><br>
         <input type="text" id="firstname" name="firstname" value="<?= $result->VN ?>"><br>
         <br>
-        <label for="infix">Tussenvoegsel:</label><br>
+        <label for="infix">Infix:</label><br>
         <input type="text" id="infix" name="infix" value="<?= $result->TV ?>"><br>
         <br>
-        <label for="lastname">Achternaam:</label><br>
+        <label for="lastname">Lastname:</label><br>
         <input type="text" id="lastname" name="lastname" value="<?= $result->AN ?>"><br>
         <br>
-        <label for="phonenumber">Phone number:</label><br>
-        <input type="text" id="phonenumber" name="phonenumber" value="<?= $result->PH ?>"><br>
+        <label for="phone_number">Phone number:</label><br>
+        <input type="text" id="phone_number" name="phone_number" value="<?= $result->PH ?>"><br>
+        <br>
+        <label for="Street_name">Street name:</label><br>
+        <input type="text" id="street_name" name="street_name" value="<?= $result->SN ?>"><br>
         <br>
         <input type="hidden" name="id" value="<?= $_GET['id'] ?>">
         <input type="submit" value="Verstuur">
