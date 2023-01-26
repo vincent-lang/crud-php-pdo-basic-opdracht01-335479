@@ -25,6 +25,9 @@
         <label for="lastname">lastname:</label><br>
         <input type="text" id="lastname" name="lastname"><br>
         <br>
+        <label for="phone_number">Phone number:</label><br>
+        <input type="text" id="phone_number" name="phone_number"><br>
+        <br>
         <input type="submit" value="submit">
     </form>
 </body>

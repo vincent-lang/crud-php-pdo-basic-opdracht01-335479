@@ -23,7 +23,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $sql = "UPDATE Persoon
             Set     Firstname = :Firstname,
                     Infix = :Infix,
-                    Lastname = :Lastname
+                    Lastname = :Lastname,
+                    Phone_number = :phone_number
                 WHERE   Id = :Id";
 
         $statement = $pdo->prepare($sql);
@@ -31,6 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $statement->bindValue(":Firstname", $_POST["firstname"], pdo::PARAM_STR);
         $statement->bindValue(":Infix", $_POST["infix"], pdo::PARAM_STR);
         $statement->bindValue(":Lastname", $_POST["lastname"], pdo::PARAM_STR);
+        $statement->bindValue(":phone_number", $_POST["phone_number"], pdo::PARAM_STR);
 
         $statement->execute();
 
@@ -48,6 +50,7 @@ $sql = "SELECT Id
               ,Firstname as VN
               ,Infix as TV
               ,Lastname as AN
+              ,Phone_number as PH
         FROM Persoon
         WHERE Id = :Id";
 
@@ -86,6 +89,9 @@ $result = $statement->fetch(PDO::FETCH_OBJ);
         <br>
         <label for="lastname">Achternaam:</label><br>
         <input type="text" id="lastname" name="lastname" value="<?= $result->AN ?>"><br>
+        <br>
+        <label for="phonenumber">Phone number:</label><br>
+        <input type="text" id="phonenumber" name="phonenumber" value="<?= $result->PH ?>"><br>
         <br>
         <input type="hidden" name="id" value="<?= $_GET['id'] ?>">
         <input type="submit" value="Verstuur">

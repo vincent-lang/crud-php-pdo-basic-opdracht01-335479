@@ -23,11 +23,13 @@ try {
 $sql = "INSERT INTO persoon (Id
                             ,Firstname 
                             ,Infix
-                            ,Lastname) 
+                            ,Lastname
+                            ,Phone_number) 
         VALUES              (NULL
                             ,:firstname
                             ,:infix
-                            ,:lastname);";
+                            ,:lastname
+                            ,:phone_number);";
 //* maak de sql-query gereed om te worden afgevuurd op de mysql-database
 $statement = $pdo->prepare($sql);
 
@@ -35,6 +37,7 @@ $statement = $pdo->prepare($sql);
 $statement->bindValue(":firstname", $_POST['firstname'], PDO::PARAM_STR);
 $statement->bindValue(":infix", $_POST['infix'], PDO::PARAM_STR);
 $statement->bindValue(":lastname", $_POST['lastname'], PDO::PARAM_STR);
+$statement->bindValue(":phone_number", $_POST['phone_number'], PDO::PARAM_STR);
 
 //* voer de sql-query uit op de database
 $statement->execute();
