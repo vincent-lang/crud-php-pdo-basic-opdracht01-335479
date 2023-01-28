@@ -123,6 +123,8 @@ $result = $statement->fetch(PDO::FETCH_OBJ);
         <label for="land_name">Land name:</label><br>
         <input type="text" id="land_name" name="land_name" value="<?= $result->LN ?>"><br>
         <br>
+        <input type="hidden" name="id" value="<?= $_GET['id'] ?>">
+        <input type="submit" value="Verstuur">
 
     </form>
 </body>
