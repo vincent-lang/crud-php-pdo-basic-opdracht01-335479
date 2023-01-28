@@ -32,7 +32,7 @@ $statement->bindValue(':SQLId', $_GET['id'], PDO::PARAM_INT);
 // Voer de query uit
 $result = $statement->execute();
 
-var_dump($result);
+// var_dump($result);
 
 if ($result) {
     // Geef een melding dat het gelukt is

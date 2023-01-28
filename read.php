@@ -26,6 +26,10 @@ $sql = "SELECT Id
             ,Lastname
             ,Phone_number
             ,Street_name
+            ,House_number
+            ,Residence
+            ,Post_code
+            ,Land_name
         FROM persoon
         ORDER BY Id ASC";
 
@@ -50,6 +54,10 @@ foreach ($result as $info) {
                 <td>$info->Lastname</td>
                 <td>$info->Phone_number</td>
                 <td>$info->Street_name</td>
+                <td>$info->House_number</td>
+                <td>$info->Residence</td>
+                <td>$info->Post_code</td>
+                <td>$info->Land_name</td>
                 <td>
                     <a href='delete.php?id={$info->Id}'>
                         <img src='img/b_drop.png' alt='Drop'</img>
@@ -76,6 +84,10 @@ foreach ($result as $info) {
         <th>Lastname</th>
         <th>Phone number</th>
         <th>Street name</th>
+        <th>House number</th>
+        <th>Residence</th>
+        <th>Post code</th>
+        <th>Land name</th>
         <th></th>
         <th></th>
     </thead>

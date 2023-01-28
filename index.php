@@ -31,7 +31,9 @@
         <label for="street_name">Street name:</label><br>
         <input type="text" id="street_name" name="street_name"><br>
         <br>
-        <input type="submit" value="submit">
+        <label for="house_number">House number:</label><br>
+        <input type="text" id="house_number" name="house_number"><br>
+        <br>
     </form>
 </body>
 

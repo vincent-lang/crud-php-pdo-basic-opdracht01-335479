@@ -25,7 +25,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     Infix = :Infix,
                     Lastname = :Lastname,
                     Phone_number = :phone_number,
-                    Street_name = :street_name
+                    Street_name = :street_name,
+                    House_number = :house_number,
+                    Residence = :residence,
+                    Post_code = :post_code,
+                    Land_name = :land_name
                 WHERE   Id = :Id";
 
         $statement = $pdo->prepare($sql);
@@ -35,6 +39,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $statement->bindValue(":Lastname", $_POST["lastname"], pdo::PARAM_STR);
         $statement->bindValue(":phone_number", $_POST["phone_number"], pdo::PARAM_STR);
         $statement->bindValue(":street_name", $_POST["street_name"], pdo::PARAM_STR);
+        $statement->bindValue(":house_number", $_POST["house_number"], pdo::PARAM_STR);
+        $statement->bindValue(":residence", $_POST["residence"], pdo::PARAM_STR);
+        $statement->bindValue(":post_code", $_POST["post_code"], pdo::PARAM_STR);
+        $statement->bindValue(":land_name", $_POST["land_name"], pdo::PARAM_STR);
 
         $statement->execute();
 
@@ -54,6 +62,10 @@ $sql = "SELECT Id
               ,Lastname as AN
               ,Phone_number as PH
               ,Street_name as SN
+              ,House_number as HN
+              ,Residence as R
+              ,Post_code as PC
+              ,Land_name as LN
         FROM Persoon
         WHERE Id = :Id";
 
@@ -98,6 +110,18 @@ $result = $statement->fetch(PDO::FETCH_OBJ);
         <br>
         <label for="Street_name">Street name:</label><br>
         <input type="text" id="street_name" name="street_name" value="<?= $result->SN ?>"><br>
+        <br>
+        <label for="house_number">House number:</label><br>
+        <input type="text" id="house_number" name="house_number" value="<?= $result->HN ?>"><br>
+        <br>
+        <label for="residence">Residence:</label><br>
+        <input type="text" id="residence" name="residence" value="<?= $result->R ?>"><br>
+        <br>
+        <label for="post_code">Post code:</label><br>
+        <input type="text" id="post_code" name="post_code" value="<?= $result->PC ?>"><br>
+        <br>
+        <label for="land_name">Land name:</label><br>
+        <input type="text" id="land_name" name="land_name" value="<?= $result->LN ?>"><br>
         <br>
         <input type="hidden" name="id" value="<?= $_GET['id'] ?>">
         <input type="submit" value="Verstuur">

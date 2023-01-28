@@ -25,13 +25,21 @@ $sql = "INSERT INTO persoon (Id
                             ,Infix
                             ,Lastname
                             ,Phone_number
-                            ,Street_name) 
+                            ,Street_name
+                            ,House_number
+                            ,Residence
+                            ,Post_code
+                            ,Land_name) 
         VALUES              (NULL
                             ,:firstname
                             ,:infix
                             ,:lastname
                             ,:phone_number
-                            ,:street_name);";
+                            ,:street_name
+                            ,:house_number
+                            ,:residence
+                            ,:post_code
+                            ,:land_name);";
 //* maak de sql-query gereed om te worden afgevuurd op de mysql-database
 $statement = $pdo->prepare($sql);
 
@@ -41,6 +49,10 @@ $statement->bindValue(":infix", $_POST['infix'], PDO::PARAM_STR);
 $statement->bindValue(":lastname", $_POST['lastname'], PDO::PARAM_STR);
 $statement->bindValue(":phone_number", $_POST['phone_number'], PDO::PARAM_STR);
 $statement->bindValue(":street_name", $_POST['street_name'], PDO::PARAM_STR);
+$statement->bindValue(":house_number", $_POST['house_number'], PDO::PARAM_STR);
+$statement->bindValue(":residence", $_POST['residence'], PDO::PARAM_STR);
+$statement->bindValue(":post_code", $_POST['post_code'], PDO::PARAM_STR);
+$statement->bindValue(":land_name", $_POST['land_name'], PDO::PARAM_STR);
 
 //* voer de sql-query uit op de database
 $statement->execute();
