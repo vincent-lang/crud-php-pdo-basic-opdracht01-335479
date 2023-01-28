@@ -83,11 +83,6 @@ foreach ($result as $info) {
         <th>Infix</th>
         <th>Lastname</th>
         <th>Phone number</th>
-        <th>Street name</th>
-        <th>House number</th>
-        <th>Residence</th>
-        <th>Post code</th>
-        <th>Land name</th>
         <th></th>
         <th></th>
     </thead>
