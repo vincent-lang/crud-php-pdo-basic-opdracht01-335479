@@ -58,4 +58,3 @@ $statement->bindValue(":land_name", $_POST['land_name'], PDO::PARAM_STR);
 $statement->execute();
 
 //* link door naar read.php voor een overzicht van de gegevens in tabel persoon
-header("location: read.php");
