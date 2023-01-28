@@ -34,6 +34,16 @@
         <label for="house_number">House number:</label><br>
         <input type="text" id="house_number" name="house_number"><br>
         <br>
+        <label for="residence">Residence:</label><br>
+        <input type="text" id="residence" name="residence"><br>
+        <br>
+        <label for="post_code">Post code:</label><br>
+        <input type="text" id="post_code" name="post_code"><br>
+        <br>
+        <label for="land_name">Land name:</label><br>
+        <input type="text" id="land_name" name="land_name"><br>
+        <br>
+        <input type="submit" value="submit">
     </form>
 </body>
 
