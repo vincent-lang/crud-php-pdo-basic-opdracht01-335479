@@ -68,7 +68,7 @@ foreach ($result as $info) {
                         <img src='img/b_edit.png' alt='Edit'</img>
                     </a>
                 </td>
-             <tr>";
+             </tr>";
 }
 
 ?>
